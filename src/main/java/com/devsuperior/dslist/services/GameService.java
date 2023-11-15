@@ -1,10 +1,14 @@
 package com.devsuperior.dslist.services;
 
+import com.devsuperior.dslist.entities.Game;
+import com.devsuperior.dslist.entities.dtos.GameDto;
 import com.devsuperior.dslist.entities.dtos.GameMinDto;
 import com.devsuperior.dslist.repositories.GameRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GameService {
@@ -17,5 +21,11 @@ public class GameService {
 
     public List<GameMinDto> findAllGames() {
         return gameRepository.findAll().stream().map(GameMinDto::new).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public GameDto findGameById(Integer idGame) {
+        Optional<Game> gameOptional = gameRepository.findById(idGame);
+        return gameOptional.map(GameDto::new).orElse(null);
     }
 }
