@@ -10,21 +10,21 @@ public class GameList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long gameListId;
+    private Integer gameListId;
     private String name;
 
     public GameList() {}
 
-    public GameList(Long gameListId, String name) {
+    public GameList(Integer gameListId, String name) {
         this.gameListId = gameListId;
         this.name = name;
     }
 
-    public Long getGameListId() {
+    public Integer getGameListId() {
         return gameListId;
     }
 
-    public void setGameListId(Long gameListId) {
+    public void setGameListId(Integer gameListId) {
         this.gameListId = gameListId;
     }
 

@@ -28,4 +28,9 @@ public class GameService {
         Optional<Game> gameOptional = gameRepository.findById(idGame);
         return gameOptional.map(GameDto::new).orElse(null);
     }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDto> findGameByGameList(Integer gameListId) {
+        return gameRepository.searchByList(gameListId).stream().map(GameMinDto::new).toList();
+    }
 }

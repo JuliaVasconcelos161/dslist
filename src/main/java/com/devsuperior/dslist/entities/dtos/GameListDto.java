@@ -3,7 +3,7 @@ package com.devsuperior.dslist.entities.dtos;
 import com.devsuperior.dslist.entities.GameList;
 
 public class GameListDto {
-    private Long gameListId;
+    private Integer gameListId;
     private String name;
 
     public GameListDto(){}
@@ -13,11 +13,11 @@ public class GameListDto {
         this.name = entity.getName();
     }
 
-    public Long getGameListId() {
+    public Integer getGameListId() {
         return gameListId;
     }
 
-    public void setGameListId(Long gameListId) {
+    public void setGameListId(Integer gameListId) {
         this.gameListId = gameListId;
     }
 
