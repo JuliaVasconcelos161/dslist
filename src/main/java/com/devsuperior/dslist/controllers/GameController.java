@@ -24,8 +24,9 @@ public class GameController {
         return gameService.findAllGames();
     }
 
-    @GetMapping("/{idGame}")
-    public GameDto findGameById(@PathVariable Integer idGame) {
-        return gameService.findGameById(idGame);
+    @GetMapping("/{gameId}")
+    public GameDto findGameById(@PathVariable Integer gameId) {
+        return gameService.findGameById(gameId);
     }
+
 }
